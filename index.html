@@ -63,8 +63,8 @@ body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max
   <div class="htitle" id="el-title"></div>
   <div class="hsub" id="el-sub"></div>
   <div class="lrow">
-    <button class="lbtn on" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lbtn" id="btn-pt" onclick="setLang('pt')">PT</button>
+    <button class="lbtn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lbtn on" id="btn-pt" onclick="setLang('pt')">PT</button>
   </div>
 </div>
 <div class="grow">
@@ -148,53 +148,53 @@ var TXT = {
   },
   pt: {
     title: "Guia de Medidas Corporais",
-    sub: "Siga o passo a passo para tirar suas medidas em casa. Dados precisos = programacao melhor.",
+    sub: "As medidas são o seu mapa — os números vão mostrar a sua evolução antes do espelho mostrar. As fotos são o seu arquivo — daqui a alguns meses, quando você olhar para trás, vai entender por que valeu a pena manter o protocolo desde o primeiro dia.",
     male: "Masculino", female: "Feminino",
-    clLabel: "Antes de comecar - checklist",
+    clLabel: "Antes de começar — checklist",
     ftTitle: "Envie suas medidas para a Integr8",
-    ftBody: "Registre seus valores e envie pelo app ou diretamente para seu coach. Tire fotos tambem - frente, lateral e costas - mesmo horario e iluminacao.",
+    ftBody: "O registro é feito direto no app da Integr8. Toque em Progresso no menu inferior e depois em Fazer check-in. A janela de registro abre toda sexta-feira e fecha no domingo à noite — fora desse período não é possível registrar até a semana seguinte. Então quando chegar a sexta, já deixa tudo preparado.",
     videoSoon: "Video tutorial em breve",
     imgSoon: "Imagem em breve",
     errorLabel: "Erro comum",
     checks: [
-      "De manha, em jejum, apos ir ao banheiro",
-      "Roupa minima - underwear ou short justo",
-      "Em pe, peso distribuido, pes na largura dos ombros",
-      "Tenha uma fita metrica flexivel em maos",
+      "De manhã, em jejum, após ir ao banheiro",
+      "Roupa mínima — underwear ou short justo",
+      "Em pé, peso distribuído, pés na largura dos ombros",
+      "Tenha uma fita métrica flexível em mãos",
       "Use um espelho para verificar o alinhamento",
-      "Meca duas vezes - registre a media"
+      "Meça duas vezes — registre a média"
     ],
     measures: [
-      { id: "weight", name: "Peso Corporal", sub: "Balanca - manha, em jejum", gnote: "",
+      { id: "weight", name: "Peso Corporal", sub: "Balança — manhã, em jejum", gnote: "",
         img: { male: "peso_male", female: "peso_female" }, errImg: {},
-        steps: ["Coloque a balanca em superficie rigida e plana - nao em tapete.", "Suba descalco(a), fique imovel, distribua o peso igualmente.", "Leia e anote o numero exato. Nao arredonde.", "Pese dois dias seguidos e calcule a media."],
-        tip: "<b>Dica:</b> O peso varia ate 2,7 kg ao longo do dia. Pese sempre no mesmo horario.",
-        err: "<b>Erro comum:</b> Pesar apos comer ou treinar - os resultados nao serao comparaveis." },
+        steps: ["Coloque a balança em superficie rigida e plana - não em tapete.", "Suba descalco(a), fique imovel, distribua o peso igualmente.", "Leia e anote o número exato. Não arredonde.", "Pese dois dias seguidos e calcule a media."],
+        tip: "<b>Dica:</b> O peso varia ate 2,7 kg ao longo do dia. Pese sempre no mesmo horário.",
+        err: "<b>Erro comum:</b> Pesar após comer ou treinar - os resultados não serao comparaveis." },
       { id: "height", name: "Estatura", sub: "Parede + objeto plano", gnote: "",
         img: { male: "estatura_male", female: "estatura_female" }, errImg: {},
-        steps: ["Fique descalco(a) encostado(a) em parede plana. Calcanhares tocando a parede.", "Em pe firme: queixo paralelo ao chao, olhar reto para frente.", "Coloque um objeto plano no topo da cabeca a 90 graus em relacao a parede.", "Marque levemente com lapis. Meca do chao ate a marca."],
-        tip: "<b>Dica:</b> Meca de manha - a compressao da coluna reduz a estatura em 1-2 cm ao longo do dia.",
-        err: "<b>Erro comum:</b> Olhar para cima ou para baixo altera a medida. Mantenha o queixo nivelado." },
+        steps: ["Fique descalco(a) encostado(a) em parede plana. Calcanhares tocando a parede.", "Em pé firme: queixo paralelo ao chão, olhar reto para frente.", "Coloque um objeto plano no topo da cabeça a 90 graus em relação a parede.", "Marque levemente com lapis. Meça do chão ate a marca."],
+        tip: "<b>Dica:</b> Meça de manhã - a compressao da coluna reduz a estatura em 1-2 cm ao longo do dia.",
+        err: "<b>Erro comum:</b> Olhar para cima ou para baixo altera a medida. Mantenha o queixo nívelado." },
       { id: "neck", name: "Pescoco", sub: "Fita - ponto medio", gnote: "homens - abaixo da laringe / mulheres - ponto medio",
         img: { male: "neck_male", female: "neck_female" }, errImg: { male: "neck_err_male", female: "neck_err_female" },
-        steps: ["Fique em pe, cabeca neutra - sem inclinar.", "Homens: fita logo abaixo da laringe, ponto mais estreito.", "Mulheres: fita no ponto medio do pescoco.", "A fita deve estar firme, sem comprimir.", "Leia ao final de uma expiracao normal."],
-        tip: "<b>Dica:</b> O pescoco entra na formula da Marinha dos EUA para estimar percentual de gordura.",
+        steps: ["Fique em pé, cabeça neutra - sem inclinar.", "Homens: fita logo abaixo da laringe, ponto mais estreito.", "Mulheres: fita no ponto medio do pescoço.", "A fita deve estar firme, sem comprimir.", "Leia ao final de uma expiração normal."],
+        tip: "<b>Dica:</b> O pescoço entra na formula da Marinha dos EUA para estimar percentual de gordura.",
         err: "<b>Erro comum:</b> Inclinar o queixo para baixo comprime o tecido e da uma leitura menor." },
       { id: "waist", name: "Cintura", sub: "Fita - ponto mais estreito", gnote: "",
         img: { male: "waist_male", female: "waist_female" }, errImg: { female: "waist_err_female" },
-        steps: ["Fique em pe, relaxado(a), pes juntos, abdomen sem contracao.", "Encontre a cintura natural - ponto mais estreito entre a ultima costela e o osso do quadril.", "Enrole a fita na horizontal. Verifique no espelho - frente e costas devem estar niveladas.", "Respire normalmente e meca ao final de uma expiracao relaxada."],
-        tip: "<b>Dica:</b> A cintura pode variar 4 cm com a respiracao. Sempre meca ao final da expiracao.",
-        err: "<b>Erro comum:</b> Medir no umbigo da um numero maior e inconsistente com a cintura natural." },
+        steps: ["Fique em pé, relaxado(a), pés juntos, abdômen sem contração.", "Encontre a cintura natural - ponto mais estreito entre a última costela e o ossó do quadril.", "Enrole a fita na horizontal. Verifique no espelho - frente e costas devem estar níveladas.", "Respire normalmente e meca ao final de uma expiração relaxada."],
+        tip: "<b>Dica:</b> A cintura pode variar 4 cm com a respiração. Sempre meca ao final da expiração.",
+        err: "<b>Erro comum:</b> Medir no umbigo da um número maior e inconsistente com a cintura natural." },
       { id: "hip", name: "Quadril / Gluteos", sub: "Fita - ponto mais largo", gnote: "somente mulheres",
         img: { female: "hip_female" }, errImg: {},
-        steps: ["Fique em pe, pes juntos, gluteos relaxados - nao contraia.", "Encontre o ponto mais largo - geralmente 7-9 cm abaixo do osso do quadril.", "Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.", "Leia na respiracao normal."],
-        tip: "<b>Dica:</b> A relacao cintura/quadril e um indicador de saude importante. Mantenha as duas medidas consistentes.",
+        steps: ["Fique em pé, pés juntos, glúteos relaxados - não contraia.", "Encontre o ponto mais largo - geralmente 7-9 cm abaixo do ossó do quadril.", "Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.", "Leia na respiração normal."],
+        tip: "<b>Dica:</b> A relação cintura/quadril e um indicador de saude importante. Mantenha as duas medidas consistentes.",
         err: "<b>Erro comum:</b> Deslocar o peso para um lado deixa a fita diagonal e aumenta a leitura." }
     ]
   }
 };
 
-var lang = "en";
+var lang = "pt";
 var gender = "male";
 var active = null;
 var checked = [];
@@ -369,12 +369,12 @@ var PHOTO_TXT = {
   },
   pt: {
     sectionTitle: "Fotos de progresso",
-    sectionSub: "3 fotos a cada check-in. Sempre nas mesmas condicoes.",
+    sectionSub: "3 fotos a cada check-in. Sempre nas mesmas condições.",
     protocol: [
-      { icon: "M", label: "De manha, em jejum" },
-      { icon: "H", label: "Mesmo horario em cada check-in" },
+      { icon: "M", label: "De manhã, em jejum" },
+      { icon: "H", label: "Mesmo horário em cada check-in" },
       { icon: "R", label: "Mesma roupa sempre" },
-      { icon: "L", label: "Mesmo local e iluminacao" }
+      { icon: "L", label: "Mesmo local e iluminação" }
     ],
     poses: [
       {
@@ -383,8 +383,8 @@ var PHOTO_TXT = {
         icon: "&#9651;",
         rules: [
           "Fique a 1,5 a 2 metros da camera.",
-          "Pes na largura do quadril, bracos levemente afastados do corpo.",
-          "Olhar reto para frente, queixo paralelo ao chao.",
+          "Pes na largura do quadril, braços levemente afastados do corpo.",
+          "Olhar reto para frente, queixo paralelo ao chão.",
           "Corpo relaxado. Sem posar, sem contrair.",
           "Camera na altura do umbigo, apoiada em algo estavel. Use o timer."
         ]
@@ -395,9 +395,9 @@ var PHOTO_TXT = {
         icon: "&#9654;",
         rules: [
           "Lado direito voltado para a camera, vire 90 graus.",
-          "Pes juntos, bracos relaxados ao longo do corpo.",
-          "Olhar reto para frente, nao para a camera.",
-          "Mesma distancia e altura da camera que a foto de frente."
+          "Pes juntos, braços relaxados ao longo do corpo.",
+          "Olhar reto para frente, não para a camera.",
+          "Mesma distância e altura da camera que a foto de frente."
         ]
       },
       {
@@ -406,30 +406,30 @@ var PHOTO_TXT = {
         icon: "&#9661;",
         rules: [
           "De costas completamente para a camera.",
-          "Pes na largura do quadril, bracos levemente afastados do corpo.",
-          "Olhar reto para frente, nao olhe por cima do ombro.",
-          "Mesma distancia e altura da camera."
+          "Pes na largura do quadril, braços levemente afastados do corpo.",
+          "Olhar reto para frente, não olhe por cima do ombro.",
+          "Mesma distância e altura da camera."
         ]
       }
     ],
     setupTitle: "Checklist de setup",
     setup: [
-      "Fundo limpo - de preferencia uma parede sem nada. Se o ambiente tiver moveis, empurre o que der para fora do quadro ou escolha um canto menos bagunçado. Nao precisa ser perfeito.",
-      "Luz natural de frente - fique voltado para uma janela. Evite ficar com a janela atras de voce.",
+      "Fundo limpo - de preferencia uma parede sem nada. Se o ambiente tiver moveis, empurre o que der para fora do quadro ou escolha um canto menos bagunçado. Não precisa ser perfeito.",
+      "Luz natural de frente - fique voltado para uma janela. Evite ficar com a janela atras de você.",
       "Sem flash - ele achata o corpo e muda o tom de pele.",
-      "Use o timer ou peca para alguem tirar. Selfie muda o angulo toda vez.",
+      "Use o timer ou peca para alguem tirar. Selfie muda o ângulo toda vez.",
       "Mesma roupa intima ou short justo sempre. Nada que comprima ou esconda o formato do corpo.",
-      "Cabelo preso - pescoco e ombros precisam aparecer.",
-      "Anote o local, a distancia, a altura da camera e a lente (1x). Mesmos numeros em todo check-in."
+      "Cabelo presó - pescoço e ombros precisam aparecer.",
+      "Anote o local, a distância, a altura da camera e a lente (1x). Mesmos números em todo check-in."
     ],
-    tipTitle: "Por que isso importa",
-    tip: "Uma foto tirada com iluminacao diferente ou de um angulo ligeiramente diferente pode parecer que nada mudou quando na verdade mudou tudo - ou o contrario. O protocolo nao e sobre ser rigido. E sobre garantir que as fotos sejam comparaveis de verdade quando chegar a hora de olhar para tras.",
+    tipTitle: "Por que issó importa",
+    tip: "Uma foto tirada com iluminação diferente ou de um ângulo ligeiramente diferente pode parecer que nada mudou quando na verdade mudou tudo - ou o contrario. O protocolo não e sobre ser rígido. E sobre garantir que as fotos sejam comparaveis de verdade quando chegar a hora de olhar para tras.",
     errTitle: "Erros mais comuns",
     errors: [
-      "Camera muito alta ou muito baixa - distorce as proporcoes do corpo.",
+      "Camera muito alta ou muito baixa - distorce as proporções do corpo.",
       "Posar ou contrair - esconde as mudancas reais.",
-      "Roupa diferente em cada foto - impossivel comparar direito.",
-      "Selfie no espelho do banheiro - angulo e iluminacao nunca sao os mesmos duas vezes.",
+      "Roupa diferente em cada foto - impossível comparar direito.",
+      "Selfie no espelho do banheiro - ângulo e iluminação nunca sao os mesmos duas vezes.",
       "Usar a lente 0.5x (ultra-wide) - deixa as pernas mais curtas e o tronco mais largo."
     ]
   }
