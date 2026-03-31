@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integr8 — Body Measurement Guide</title>
+<title>Integr8 â€” Body Measurement Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -52,7 +52,7 @@ body{font-family:var(--ff-body);color:var(--text);background:#f7f7f5;padding:16p
 .mb{display:none;padding:0 16px 16px}
 .mc.on .mb{display:block}
 .pw{border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(--surface);border:.5px solid var(--border);min-height:60px}
-.pw img{width:100%;display:block;object-fit:cover;max-height:360px;object-position:top center}
+.pw img{width:100%;display:block;object-fit:cover;max-height:600px;object-position:center center}
 .pp{min-height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--muted);font-size:12px;padding:20px}
 .pp span{font-size:22px}
 .vs{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:8px;border:1px dashed var(--border);padding:10px 12px;margin-bottom:10px;font-size:12px;color:var(--muted)}
@@ -117,79 +117,79 @@ const TXT = {
     title:'Body Measurement Guide',
     sub:'Follow these steps to take your measurements correctly at home. Accurate data = better programming.',
     male:'Male', female:'Female',
-    clLabel:'Before you start — checklist',
+    clLabel:'Before you start â€” checklist',
     ftTitle:'Send your measurements to Integr8',
-    ftBody:'After taking all measurements, record your values and send them through the app or directly to your coach. Take photos too — front, side, and back — same time, same lighting.',
+    ftBody:'After taking all measurements, record your values and send them through the app or directly to your coach. Take photos too â€” front, side, and back â€” same time, same lighting.',
     checks:[
       'Morning, fasted, after using the bathroom',
-      'Minimal clothing — underwear or tight shorts',
+      'Minimal clothing â€” underwear or tight shorts',
       'Stand straight, feet shoulder-width apart',
       'Have a flexible tape measure ready',
       'Use a mirror to check alignment',
-      'Measure twice — record the average',
+      'Measure twice â€” record the average',
     ],
     measures:[
-      {id:'weight', imgKey:'peso', name:'Body Weight', sub:'Scale · morning, fasted', gnote:null,
-       steps:['Place scale on a hard, flat surface — not carpet.','Step on barefoot, stand still, distribute weight evenly.','Read and record the exact number. Do not round.','Weigh yourself 2 days in a row and average the result.'],
+      {id:'weight', imgKey:'peso', name:'Body Weight', sub:'Scale Â· morning, fasted', gnote:null,
+       steps:['Place scale on a hard, flat surface â€” not carpet.','Step on barefoot, stand still, distribute weight evenly.','Read and record the exact number. Do not round.','Weigh yourself 2 days in a row and average the result.'],
        tip:'<strong>Tip:</strong> Weight fluctuates up to 2.7 kg throughout the day. Always weigh at the same time, under the same conditions.',
-       err:'<strong>Common mistake:</strong> Weighing after eating or training — results will not be comparable session to session.'},
+       err:'<strong>Common mistake:</strong> Weighing after eating or training â€” results will not be comparable session to session.'},
       {id:'height', imgKey:'estatura', name:'Height', sub:'Wall + flat object', gnote:null,
-       steps:['Stand barefoot against a flat wall. Heels must touch the wall.','Stand tall: chin parallel to the floor, look straight ahead.','Place a flat object (book, phone) on top of your head at 90° to the wall.','Mark the wall lightly. Measure from floor to mark.'],
-       tip:'<strong>Tip:</strong> Measure in the morning — spinal compression during the day can reduce height by 1–2 cm.',
+       steps:['Stand barefoot against a flat wall. Heels must touch the wall.','Stand tall: chin parallel to the floor, look straight ahead.','Place a flat object (book, phone) on top of your head at 90Â° to the wall.','Mark the wall lightly. Measure from floor to mark.'],
+       tip:'<strong>Tip:</strong> Measure in the morning â€” spinal compression during the day can reduce height by 1â€“2 cm.',
        err:'<strong>Common mistake:</strong> Looking up or down shifts the measurement. Keep your chin perfectly level.'},
-      {id:'neck', imgKey:'neck', name:'Neck', sub:'Tape · mid-neck', gnote:'men — below larynx / women — mid-neck',
-       steps:['Stand upright, head neutral — do not tilt.','Men: tape just below the larynx (Adam apple), the narrowest point.','Women: tape at the midpoint of the neck.','Tape should be snug but not compressing skin.','Read at the end of a normal exhale.'],
-       tip:'<strong>Tip:</strong> The neck measurement feeds into the US Navy body fat formula — keep it consistent every time.',
+      {id:'neck', imgKey:'neck', name:'Neck', sub:'Tape Â· mid-neck', gnote:'men â€” below larynx / women â€” mid-neck',
+       steps:['Stand upright, head neutral â€” do not tilt.','Men: tape just below the larynx (Adam apple), the narrowest point.','Women: tape at the midpoint of the neck.','Tape should be snug but not compressing skin.','Read at the end of a normal exhale.'],
+       tip:'<strong>Tip:</strong> The neck measurement feeds into the US Navy body fat formula â€” keep it consistent every time.',
        err:'<strong>Common mistake:</strong> Tilting the chin down compresses neck tissue and gives a falsely smaller reading.'},
-      {id:'waist', imgKey:'waist', name:'Waist', sub:'Tape · narrowest point', gnote:null,
-       steps:['Stand relaxed, feet together, abdomen not sucked in.','Find the natural waist — narrowest point between your last rib and hip bone.','Wrap tape horizontally. Check in a mirror — front and back must be level.','Breathe normally, measure at end of a relaxed exhale.'],
+      {id:'waist', imgKey:'waist', name:'Waist', sub:'Tape Â· narrowest point', gnote:null,
+       steps:['Stand relaxed, feet together, abdomen not sucked in.','Find the natural waist â€” narrowest point between your last rib and hip bone.','Wrap tape horizontally. Check in a mirror â€” front and back must be level.','Breathe normally, measure at end of a relaxed exhale.'],
        tip:'<strong>Tip:</strong> Waist can vary up to 4 cm with breathing. Always measure at end of exhale.',
        err:'<strong>Common mistake:</strong> Measuring at the navel instead of the narrowest point gives a larger, inconsistent number.'},
-      {id:'hip', imgKey:'hip', name:'Hip / Glutes', sub:'Tape · widest point', gnote:null,
-       steps:['Stand with feet together, glutes relaxed — do not flex.','Find the widest point — usually 7–9 cm below the hip bone.','Wrap tape horizontally. Confirm it is level all the way around.','Read at normal breath.'],
-       tip:'<strong>Tip:</strong> Waist-to-hip ratio (waist ÷ hip) is a key health marker. Keep both measurements consistent.',
+      {id:'hip', imgKey:'hip', name:'Hip / Glutes', sub:'Tape Â· widest point', gnote:null,
+       steps:['Stand with feet together, glutes relaxed â€” do not flex.','Find the widest point â€” usually 7â€“9 cm below the hip bone.','Wrap tape horizontally. Confirm it is level all the way around.','Read at normal breath.'],
+       tip:'<strong>Tip:</strong> Waist-to-hip ratio (waist Ã· hip) is a key health marker. Keep both measurements consistent.',
        err:'<strong>Common mistake:</strong> Shifting weight to one side makes the tape diagonal and inflates the reading.'},
     ],
     videoSoon:'Video tutorial coming soon',
   },
   pt: {
     title:'Guia de Medidas Corporais',
-    sub:'Siga o passo a passo para tirar suas medidas corretamente em casa. Dados precisos = programação melhor.',
+    sub:'Siga o passo a passo para tirar suas medidas corretamente em casa. Dados precisos = programaÃ§Ã£o melhor.',
     male:'Masculino', female:'Feminino',
-    clLabel:'Antes de começar — checklist',
+    clLabel:'Antes de comeÃ§ar â€” checklist',
     ftTitle:'Envie suas medidas para a Integr8',
-    ftBody:'Após registrar todas as medidas, envie pelo app ou diretamente para seu coach. Tire fotos também — frente, lateral e costas — mesmo horário e iluminação.',
+    ftBody:'ApÃ³s registrar todas as medidas, envie pelo app ou diretamente para seu coach. Tire fotos tambÃ©m â€” frente, lateral e costas â€” mesmo horÃ¡rio e iluminaÃ§Ã£o.',
     checks:[
-      'De manhã, em jejum, após ir ao banheiro',
-      'Roupa mínima — underwear ou short justo',
-      'Em pé, peso distribuído, pés na largura dos ombros',
-      'Tenha uma fita métrica flexível em mãos',
+      'De manhÃ£, em jejum, apÃ³s ir ao banheiro',
+      'Roupa mÃ­nima â€” underwear ou short justo',
+      'Em pÃ©, peso distribuÃ­do, pÃ©s na largura dos ombros',
+      'Tenha uma fita mÃ©trica flexÃ­vel em mÃ£os',
       'Use um espelho para verificar o alinhamento',
-      'Meça duas vezes — registre a média',
+      'MeÃ§a duas vezes â€” registre a mÃ©dia',
     ],
     measures:[
-      {id:'weight', imgKey:'peso', name:'Peso Corporal', sub:'Balança · manhã, em jejum', gnote:null,
-       steps:['Coloque a balança em superfície rígida e plana — não em tapete.','Suba descalço(a), fique imóvel, distribua o peso igualmente.','Leia e anote o número exato. Não arredonde.','Pese dois dias seguidos e calcule a média.'],
-       tip:'<strong>Dica:</strong> O peso varia até 2,7 kg ao longo do dia. Pese sempre no mesmo horário, nas mesmas condições.',
-       err:'<strong>Erro comum:</strong> Pesar após comer ou treinar — os resultados não serão comparáveis entre as sessões.'},
+      {id:'weight', imgKey:'peso', name:'Peso Corporal', sub:'BalanÃ§a Â· manhÃ£, em jejum', gnote:null,
+       steps:['Coloque a balanÃ§a em superfÃ­cie rÃ­gida e plana â€” nÃ£o em tapete.','Suba descalÃ§o(a), fique imÃ³vel, distribua o peso igualmente.','Leia e anote o nÃºmero exato. NÃ£o arredonde.','Pese dois dias seguidos e calcule a mÃ©dia.'],
+       tip:'<strong>Dica:</strong> O peso varia atÃ© 2,7 kg ao longo do dia. Pese sempre no mesmo horÃ¡rio, nas mesmas condiÃ§Ãµes.',
+       err:'<strong>Erro comum:</strong> Pesar apÃ³s comer ou treinar â€” os resultados nÃ£o serÃ£o comparÃ¡veis entre as sessÃµes.'},
       {id:'height', imgKey:'estatura', name:'Estatura', sub:'Parede + objeto plano', gnote:null,
-       steps:['Fique descalço(a) encostado(a) em parede plana. Calcanhares tocando a parede.','Em pé firme: queixo paralelo ao chão, olhar reto para frente.','Coloque um objeto plano (livro, celular) no topo da cabeça a 90° em relação à parede.','Marque levemente com lápis. Meça do chão até a marca.'],
-       tip:'<strong>Dica:</strong> Meça de manhã — a compressão da coluna ao longo do dia reduz a estatura em ~1–2 cm.',
+       steps:['Fique descalÃ§o(a) encostado(a) em parede plana. Calcanhares tocando a parede.','Em pÃ© firme: queixo paralelo ao chÃ£o, olhar reto para frente.','Coloque um objeto plano (livro, celular) no topo da cabeÃ§a a 90Â° em relaÃ§Ã£o Ã  parede.','Marque levemente com lÃ¡pis. MeÃ§a do chÃ£o atÃ© a marca.'],
+       tip:'<strong>Dica:</strong> MeÃ§a de manhÃ£ â€” a compressÃ£o da coluna ao longo do dia reduz a estatura em ~1â€“2 cm.',
        err:'<strong>Erro comum:</strong> Olhar para cima ou para baixo altera a medida. Mantenha o queixo nivelado.'},
-      {id:'neck', imgKey:'neck', name:'Pescoço', sub:'Fita · ponto médio', gnote:'homens — abaixo da laringe / mulheres — ponto médio',
-       steps:['Fique em pé, cabeça neutra — sem inclinar.','Homens: fita logo abaixo da laringe (pomo de adão), ponto mais estreito.','Mulheres: fita no ponto médio do pescoço.','A fita deve estar firme, sem comprimir.','Leia ao final de uma expiração normal.'],
-       tip:'<strong>Dica:</strong> O pescoço entra na fórmula da Marinha dos EUA para estimar % de gordura — mantenha a medição consistente.',
-       err:'<strong>Erro comum:</strong> Inclinar o queixo para baixo comprime o tecido do pescoço e dá uma leitura menor.'},
-      {id:'waist', imgKey:'waist', name:'Cintura', sub:'Fita · ponto mais estreito', gnote:null,
-       steps:['Fique em pé, relaxado(a), pés juntos, abdômen sem contração.','Encontre a cintura natural — ponto mais estreito entre a última costela e o osso do quadril.','Enrole a fita na horizontal. Verifique no espelho — frente e costas devem estar niveladas.','Respire normalmente e meça ao final de uma expiração relaxada.'],
-       tip:'<strong>Dica:</strong> A cintura pode variar 4 cm com a respiração. Sempre meça ao final da expiração.',
-       err:'<strong>Erro comum:</strong> Medir no umbigo dá um número maior e inconsistente com a cintura natural.'},
-      {id:'hip', imgKey:'hip', name:'Quadril / Glúteos', sub:'Fita · ponto mais largo', gnote:null,
-       steps:['Fique em pé, pés juntos, glúteos relaxados — não contraia.','Encontre o ponto mais largo — geralmente 7–9 cm abaixo do osso do quadril.','Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.','Leia na respiração normal.'],
-       tip:'<strong>Dica:</strong> A relação cintura/quadril é um indicador de saúde importante. Mantenha as duas medidas consistentes.',
+      {id:'neck', imgKey:'neck', name:'PescoÃ§o', sub:'Fita Â· ponto mÃ©dio', gnote:'homens â€” abaixo da laringe / mulheres â€” ponto mÃ©dio',
+       steps:['Fique em pÃ©, cabeÃ§a neutra â€” sem inclinar.','Homens: fita logo abaixo da laringe (pomo de adÃ£o), ponto mais estreito.','Mulheres: fita no ponto mÃ©dio do pescoÃ§o.','A fita deve estar firme, sem comprimir.','Leia ao final de uma expiraÃ§Ã£o normal.'],
+       tip:'<strong>Dica:</strong> O pescoÃ§o entra na fÃ³rmula da Marinha dos EUA para estimar % de gordura â€” mantenha a mediÃ§Ã£o consistente.',
+       err:'<strong>Erro comum:</strong> Inclinar o queixo para baixo comprime o tecido do pescoÃ§o e dÃ¡ uma leitura menor.'},
+      {id:'waist', imgKey:'waist', name:'Cintura', sub:'Fita Â· ponto mais estreito', gnote:null,
+       steps:['Fique em pÃ©, relaxado(a), pÃ©s juntos, abdÃ´men sem contraÃ§Ã£o.','Encontre a cintura natural â€” ponto mais estreito entre a Ãºltima costela e o osso do quadril.','Enrole a fita na horizontal. Verifique no espelho â€” frente e costas devem estar niveladas.','Respire normalmente e meÃ§a ao final de uma expiraÃ§Ã£o relaxada.'],
+       tip:'<strong>Dica:</strong> A cintura pode variar 4 cm com a respiraÃ§Ã£o. Sempre meÃ§a ao final da expiraÃ§Ã£o.',
+       err:'<strong>Erro comum:</strong> Medir no umbigo dÃ¡ um nÃºmero maior e inconsistente com a cintura natural.'},
+      {id:'hip', imgKey:'hip', name:'Quadril / GlÃºteos', sub:'Fita Â· ponto mais largo', gnote:null,
+       steps:['Fique em pÃ©, pÃ©s juntos, glÃºteos relaxados â€” nÃ£o contraia.','Encontre o ponto mais largo â€” geralmente 7â€“9 cm abaixo do osso do quadril.','Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.','Leia na respiraÃ§Ã£o normal.'],
+       tip:'<strong>Dica:</strong> A relaÃ§Ã£o cintura/quadril Ã© um indicador de saÃºde importante. Mantenha as duas medidas consistentes.',
        err:'<strong>Erro comum:</strong> Deslocar o peso para um lado deixa a fita diagonal e aumenta a leitura.'},
     ],
-    videoSoon:'Vídeo tutorial em breve',
+    videoSoon:'VÃ­deo tutorial em breve',
   },
 };
 
@@ -266,3 +266,4 @@ render();
 </script>
 </body>
 </html>
+
