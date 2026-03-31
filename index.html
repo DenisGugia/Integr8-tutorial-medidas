@@ -211,6 +211,7 @@ function setGender(g) {
   document.getElementById("btn-male").className = "gbtn" + (g === "male" ? " on" : "");
   document.getElementById("btn-female").className = "gbtn" + (g === "female" ? " on" : "");
   renderMeasures();
+  renderPhotos();
 }
 
 function toggleCheck(i) {
@@ -302,12 +303,12 @@ function render() {
 var PHOTO_TXT = {
   en: {
     sectionTitle: "Progress photos",
-    sectionSub: "3 photos every check-in. Always the same conditions.",
+    sectionSub: "3 photos every check-in. Same conditions every time.",
     protocol: [
       { icon: "M", label: "Morning, fasted" },
       { icon: "T", label: "Same time every check-in" },
-      { icon: "C", label: "Same clothing every time" },
-      { icon: "L", label: "Same location and lighting" }
+      { icon: "C", label: "Same outfit every time" },
+      { icon: "L", label: "Same spot and lighting" }
     ],
     poses: [
       {
@@ -318,8 +319,8 @@ var PHOTO_TXT = {
           "Stand 1.5 to 2 meters from the camera.",
           "Feet hip-width apart, arms slightly away from your sides.",
           "Look straight ahead, chin parallel to the floor.",
-          "Relax your body completely - no posing, no flexing.",
-          "Camera at belly button height, on a stable surface or tripod."
+          "Relax completely - no posing, no flexing.",
+          "Camera at belly button height on a stable surface or tripod. Use the timer."
         ]
       },
       {
@@ -327,10 +328,10 @@ var PHOTO_TXT = {
         name: "Side",
         icon: "&#9654;",
         rules: [
-          "Turn 90 degrees - right side facing the camera.",
+          "Right side facing the camera, turned 90 degrees.",
           "Feet together, arms relaxed at your sides.",
-          "Look straight ahead, do not look at the camera.",
-          "Keep the same distance and camera height as the front photo."
+          "Look straight ahead - not at the camera.",
+          "Same distance and camera height as the front photo."
         ]
       },
       {
@@ -338,31 +339,32 @@ var PHOTO_TXT = {
         name: "Back",
         icon: "&#9661;",
         rules: [
-          "Turn completely around, back to the camera.",
+          "Fully turned around, back to the camera.",
           "Feet hip-width apart, arms slightly away from your sides.",
-          "Look straight ahead, do not look over your shoulder.",
-          "Keep the same distance and camera height."
+          "Look straight ahead - do not look over your shoulder.",
+          "Same distance and camera height."
         ]
       }
     ],
     setupTitle: "Setup checklist",
     setup: [
-      "Plain wall as background - white, beige or light gray. No furniture, mirrors or doors.",
-      "Natural light from the front - stand facing a window. Avoid backlighting.",
-      "No flash - flash creates shadows and changes the way your body looks.",
-      "Use the timer or ask someone to take the photo - no selfies.",
-      "Same underwear or tight shorts every time - nothing that compresses or hides body shape.",
-      "Hair up - tie it back so your neck and shoulders are fully visible."
+      "Plain background - ideally a clear wall. If the room has furniture behind you, push it out of frame or pick a corner that is less busy. It does not need to be perfect.",
+      "Natural light from the front - stand facing a window. Avoid shooting with the window behind you.",
+      "No flash - it flattens the body and shifts your skin tone.",
+      "Use the timer or ask someone to take the photo. Selfies change the angle every time.",
+      "Same underwear or fitted shorts every time. Nothing that compresses or hides your shape.",
+      "Hair up - tie it back so your neck and shoulders are fully visible.",
+      "Write down your spot, distance, camera height and lens (1x). Same numbers every check-in."
     ],
-    tipTitle: "Why consistency matters",
-    tip: "The comparison between photos taken under different conditions is misleading. A change in lighting, angle or clothing can make it look like nothing changed when everything did - or the opposite. Follow the same protocol every time and the photos will tell the truth.",
+    tipTitle: "Why this matters",
+    tip: "A photo taken in different lighting or from a slightly different angle can look like nothing changed when everything did - or the reverse. The protocol is not about being rigid. It is about making sure the photos are actually comparable when it is time to look back.",
     errTitle: "Most common mistakes",
     errors: [
       "Camera too high or too low - distorts body proportions.",
-      "Flexing or posing - hides real changes.",
-      "Different clothing each time - impossible to compare.",
-      "Bathroom mirror selfie - angle and lighting are never the same.",
-      "Photo taken at night with artificial light - skin tone and shadows change."
+      "Flexing or holding a pose - hides real changes.",
+      "Different outfit each time - impossible to compare fairly.",
+      "Bathroom mirror selfie - angle and lighting are never the same twice.",
+      "Using the 0.5x ultra-wide lens - makes legs look shorter and torso wider."
     ]
   },
   pt: {
@@ -383,8 +385,8 @@ var PHOTO_TXT = {
           "Fique a 1,5 a 2 metros da camera.",
           "Pes na largura do quadril, bracos levemente afastados do corpo.",
           "Olhar reto para frente, queixo paralelo ao chao.",
-          "Corpo completamente relaxado - sem posar, sem contrair.",
-          "Camera na altura do umbigo, em superficie estavel ou tripe."
+          "Corpo relaxado. Sem posar, sem contrair.",
+          "Camera na altura do umbigo, apoiada em algo estavel. Use o timer."
         ]
       },
       {
@@ -392,10 +394,10 @@ var PHOTO_TXT = {
         name: "Lateral",
         icon: "&#9654;",
         rules: [
-          "Vire 90 graus - lado direito para a camera.",
+          "Lado direito voltado para a camera, vire 90 graus.",
           "Pes juntos, bracos relaxados ao longo do corpo.",
-          "Olhar reto para frente, nao olhe para a camera.",
-          "Mantenha a mesma distancia e altura da camera que a foto de frente."
+          "Olhar reto para frente, nao para a camera.",
+          "Mesma distancia e altura da camera que a foto de frente."
         ]
       },
       {
@@ -403,39 +405,50 @@ var PHOTO_TXT = {
         name: "Costas",
         icon: "&#9661;",
         rules: [
-          "Vire completamente de costas para a camera.",
+          "De costas completamente para a camera.",
           "Pes na largura do quadril, bracos levemente afastados do corpo.",
           "Olhar reto para frente, nao olhe por cima do ombro.",
-          "Mantenha a mesma distancia e altura da camera."
+          "Mesma distancia e altura da camera."
         ]
       }
     ],
     setupTitle: "Checklist de setup",
     setup: [
-      "Parede lisa como fundo - branca, bege ou cinza claro. Sem moveis, espelhos ou portas.",
-      "Luz natural de frente - fique de frente para uma janela. Evite contraluz.",
-      "Sem flash - o flash cria sombras e muda a aparencia do corpo.",
-      "Use o timer ou peca para alguem tirar a foto - sem selfie.",
-      "Mesma roupa intima ou short justo sempre - nada que comprima ou esconda o corpo.",
-      "Cabelo preso - para que pescoco e ombros fiquem totalmente visiveis."
+      "Fundo limpo - de preferencia uma parede sem nada. Se o ambiente tiver moveis, empurre o que der para fora do quadro ou escolha um canto menos bagunçado. Nao precisa ser perfeito.",
+      "Luz natural de frente - fique voltado para uma janela. Evite ficar com a janela atras de voce.",
+      "Sem flash - ele achata o corpo e muda o tom de pele.",
+      "Use o timer ou peca para alguem tirar. Selfie muda o angulo toda vez.",
+      "Mesma roupa intima ou short justo sempre. Nada que comprima ou esconda o formato do corpo.",
+      "Cabelo preso - pescoco e ombros precisam aparecer.",
+      "Anote o local, a distancia, a altura da camera e a lente (1x). Mesmos numeros em todo check-in."
     ],
-    tipTitle: "Por que a consistencia importa",
-    tip: "A comparacao entre fotos tiradas em condicoes diferentes e enganosa. Uma mudanca de iluminacao, angulo ou roupa pode parecer que nada mudou quando tudo mudou - ou o contrario. Siga sempre o mesmo protocolo e as fotos vao contar a verdade.",
+    tipTitle: "Por que isso importa",
+    tip: "Uma foto tirada com iluminacao diferente ou de um angulo ligeiramente diferente pode parecer que nada mudou quando na verdade mudou tudo - ou o contrario. O protocolo nao e sobre ser rigido. E sobre garantir que as fotos sejam comparaveis de verdade quando chegar a hora de olhar para tras.",
     errTitle: "Erros mais comuns",
     errors: [
-      "Camera muito alta ou baixa - distorce as proporcoes do corpo.",
+      "Camera muito alta ou muito baixa - distorce as proporcoes do corpo.",
       "Posar ou contrair - esconde as mudancas reais.",
-      "Roupa diferente em cada foto - impossivel comparar.",
-      "Selfie no espelho do banheiro - angulo e iluminacao nunca sao os mesmos.",
-      "Foto a noite com luz artificial - tom de pele e sombras mudam."
+      "Roupa diferente em cada foto - impossivel comparar direito.",
+      "Selfie no espelho do banheiro - angulo e iluminacao nunca sao os mesmos duas vezes.",
+      "Usar a lente 0.5x (ultra-wide) - deixa as pernas mais curtas e o tronco mais largo."
     ]
   }
+};
+
+var PHOTO_IMGS = {
+  front_male:   "images/foto_frente_masculino.jpg",
+  front_female: "images/foto_frente_feminino.jpg",
+  side_male:    "images/foto_lateral_masculino.jpg",
+  side_female:  "images/foto_lateral_feminino.jpg",
+  back_male:    "images/foto_costas_masculino.jpg",
+  back_female:  "images/foto_costas_feminino.jpg"
 };
 
 function renderPhotos() {
   var t = PHOTO_TXT[lang];
   var html = "";
 
+  // Header
   html += "<div style=\"background:var(--brand);color:#fff;border-radius:var(--r);padding:24px;margin-bottom:10px;position:relative;overflow:hidden;\">";
   html += "<div style=\"position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:var(--accent);border-radius:50%;opacity:.08\"></div>";
   html += "<div style=\"font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px\">Integr8</div>";
@@ -450,15 +463,21 @@ function renderPhotos() {
   }
   html += "</div></div>";
 
-  // 3 pose cards
+  // 3 pose cards with photos
+  var poseKeys = ["front", "side", "back"];
   for (var i = 0; i < t.poses.length; i++) {
     var pose = t.poses[i];
+    var imgKey = poseKeys[i] + "_" + gender;
+    var imgSrc = PHOTO_IMGS[imgKey] || "";
     html += "<div class=\"mcard\" style=\"margin-bottom:10px\">";
     html += "<div class=\"mhdr\" onclick=\"togglePose('" + pose.id + "')\"><div>";
     html += "<div class=\"mname\"><span style=\"width:9px;height:9px;border-radius:50%;background:var(--accent);border:1.5px solid var(--brand);flex-shrink:0;display:inline-block\"></span>";
     html += "&nbsp;" + pose.name + "</div></div>";
     html += "<span class=\"mtog\" id=\"ptog-" + pose.id + "\">+</span></div>";
     html += "<div class=\"mbody\" id=\"pbody-" + pose.id + "\" style=\"display:none\">";
+    if (imgSrc) {
+      html += "<div class=\"photo\" style=\"margin-bottom:12px\"><img src=\"" + imgSrc + "\" alt=\"\" loading=\"lazy\"></div>";
+    }
     html += "<ul class=\"slist\">";
     for (var j = 0; j < pose.rules.length; j++) {
       html += "<li class=\"sitem\"><span class=\"snum\">" + (j+1) + "</span><span>" + pose.rules[j] + "</span></li>";
