@@ -9,7 +9,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--brand:#1a1a1a;--accent:#C8F06A;--text:#1a1a1a;--muted:#6b6b6b;--border:#e5e5e5;--surface:#f7f7f5;--card:#fff;--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--r:12px}
-body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max-width:520px;margin:0 auto}
+body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max-width:520px;margin:0 auto;font-size:var(--fs,15px);transition:font-size .2s}
+.fs-normal{--fs:15px}
+.fs-medium{--fs:18px}
+.fs-large{--fs:22px}
 .hdr{background:var(--brand);color:#fff;padding:28px 24px 22px;border-radius:var(--r);margin-bottom:16px;position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:var(--accent);border-radius:50%;opacity:.1}
 .logo{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
@@ -17,6 +20,10 @@ body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max
 .hsub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
 .lrow{display:flex;gap:6px;margin-top:14px}
 .lbtn{padding:4px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-family:var(--fb);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.fsbtn{padding:4px 12px;border-radius:20px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-family:var(--fb);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px}
+.fsbtn.on{background:var(--accent);border-color:var(--accent);color:#1a1a1a}
+.fsbtn .fa{font-size:10px;opacity:.7}
+.fsbtn .fb2{font-size:14px;font-weight:700}
 .lbtn.on{background:var(--accent);border-color:var(--accent);color:#1a1a1a}
 .grow{display:flex;gap:10px;margin-bottom:16px}
 .gbtn{flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--fh);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.06em;text-transform:uppercase}
@@ -62,9 +69,15 @@ body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max
   <div class="logo">Integr8</div>
   <div class="htitle" id="el-title"></div>
   <div class="hsub" id="el-sub"></div>
-  <div class="lrow">
-    <button class="lbtn" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lbtn on" id="btn-pt" onclick="setLang('pt')">PT</button>
+  <div class="lrow" style="justify-content:space-between">
+    <div style="display:flex;gap:6px">
+      <button class="lbtn" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lbtn on" id="btn-pt" onclick="setLang('pt')">PT</button>
+    </div>
+    <button class="fsbtn on" id="btn-fs" onclick="cycleFontSize()" title="Tamanho do texto">
+      <span class="fa">A</span><span class="fb2">A</span>
+      <span id="fs-label" style="font-size:11px;margin-left:2px">Texto</span>
+    </button>
   </div>
 </div>
 <div class="grow">
@@ -288,6 +301,7 @@ function renderMeasures() {
 
 function render() {
   var t = TXT[lang];
+  applyFontSize();
   document.getElementById("el-title").textContent = t.title;
   document.getElementById("el-sub").textContent = t.sub;
   document.getElementById("el-male").textContent = t.male;
@@ -534,6 +548,32 @@ function togglePhotoCheck(el) {
 }
 
 
+var fontSizes = ["normal", "medium", "large"];
+var fontLabels = { en: ["Text", "Text", "Text"], pt: ["Texto", "Texto", "Texto"] };
+var fontDisplays = { normal: "A", medium: "AA", large: "AAA" };
+var currentFont = 0;
+
+function cycleFontSize() {
+  currentFont = (currentFont + 1) % 3;
+  applyFontSize();
+}
+
+function applyFontSize() {
+  var body = document.body;
+  body.classList.remove("fs-normal", "fs-medium", "fs-large");
+  body.classList.add("fs-" + fontSizes[currentFont]);
+  var btn = document.getElementById("btn-fs");
+  var label = document.getElementById("fs-label");
+  if (btn) {
+    btn.querySelector(".fb2").textContent = fontDisplays[fontSizes[currentFont]];
+  }
+  if (label) {
+    label.textContent = lang === "pt" ? "Texto" : "Text";
+  }
+}
+
+
+document.body.classList.add("fs-normal");
 render();
 </script>
 </body>
