@@ -9,10 +9,21 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--brand:#1a1a1a;--accent:#C8F06A;--text:#1a1a1a;--muted:#6b6b6b;--border:#e5e5e5;--surface:#f7f7f5;--card:#fff;--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--r:12px}
-body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max-width:520px;margin:0 auto;font-size:var(--fs,15px);transition:font-size .2s}
-.fs-normal{--fs:15px}
-.fs-medium{--fs:18px}
-.fs-large{--fs:22px}
+html{font-size:16px;transition:font-size .25s ease}
+html.fs-medium{font-size:20px}
+html.fs-large{font-size:24px}
+body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:1rem;max-width:520px;margin:0 auto}
+.htitle{font-family:var(--fh);font-size:1.5rem;font-weight:700;line-height:1.15;margin-bottom:.4rem}
+.hsub{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.5}
+.mname{font-family:var(--fh);font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:9px}
+.msub{font-size:.75rem;color:var(--muted);margin-top:2px;padding-left:18px}
+.sitem{display:flex;gap:9px;font-size:.875rem;line-height:1.5;color:var(--text)}
+.tipbox{background:var(--surface);border-radius:8px;border-left:3px solid var(--accent);padding:9px 11px;font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.errbox{background:var(--surface);border-radius:8px;border-left:3px solid #E24B4A;padding:9px 11px;font-size:.8rem;color:var(--muted);line-height:1.5}
+.citem{display:flex;align-items:flex-start;gap:9px;font-size:.875rem;line-height:1.45;color:var(--muted);cursor:pointer}
+.slbl{font-family:var(--fh);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.footer{background:var(--surface);border-radius:var(--r);border:.5px solid var(--border);padding:14px 18px;font-size:.8rem;color:var(--muted);line-height:1.6;text-align:center;margin-top:4px}
+.snum{width:1.4rem;height:1.4rem;border-radius:50%;background:var(--brand);color:var(--accent);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:var(--fh)}
 .hdr{background:var(--brand);color:#fff;padding:28px 24px 22px;border-radius:var(--r);margin-bottom:16px;position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:var(--accent);border-radius:50%;opacity:.1}
 .logo{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
@@ -75,7 +86,7 @@ body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max
       <button class="lbtn on" id="btn-pt" onclick="setLang('pt')">PT</button>
     </div>
     <button class="fsbtn on" id="btn-fs" onclick="cycleFontSize()" title="Tamanho do texto">
-      <span class="fa">A</span><span class="fb2">A</span>
+      <span class="fs-icon" style="font-weight:700;letter-spacing:-1px;font-size:13px">A A</span>
       <span id="fs-label" style="font-size:11px;margin-left:2px">Texto</span>
     </button>
   </div>
@@ -301,7 +312,7 @@ function renderMeasures() {
 
 function render() {
   var t = TXT[lang];
-  applyFontSize();
+  applyFontSize();  
   document.getElementById("el-title").textContent = t.title;
   document.getElementById("el-sub").textContent = t.sub;
   document.getElementById("el-male").textContent = t.male;
@@ -548,32 +559,47 @@ function togglePhotoCheck(el) {
 }
 
 
-var fontSizes = ["normal", "medium", "large"];
-var fontLabels = { en: ["Text", "Text", "Text"], pt: ["Texto", "Texto", "Texto"] };
-var fontDisplays = { normal: "A", medium: "AA", large: "AAA" };
-var currentFont = 0;
+var FS_LEVELS = ["normal", "medium", "large"];
+var FS_LABELS = { normal: {pt: "Texto", en: "Text"}, medium: {pt: "Texto M", en: "Text M"}, large: {pt: "Texto G", en: "Text L"} };
+var FS_ICONS =  { normal: "A A", medium: "A​AA", large: "AA​AA" };
+var currentFS = 0;
 
-function cycleFontSize() {
-  currentFont = (currentFont + 1) % 3;
-  applyFontSize();
+function detectSystemFont() {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {}
+  var pref = window.localStorage ? localStorage.getItem("integr8_fs") : null;
+  if (pref && FS_LEVELS.indexOf(pref) !== -1) {
+    currentFS = FS_LEVELS.indexOf(pref);
+  } else if (window.matchMedia && window.matchMedia("(prefers-font-size: large)").matches) {
+    currentFS = 2;
+  } else {
+    var ratio = window.devicePixelRatio || 1;
+    var w = window.innerWidth || 375;
+    if (w < 360 || ratio > 2.5) { currentFS = 1; }
+  }
 }
 
 function applyFontSize() {
-  var body = document.body;
-  body.classList.remove("fs-normal", "fs-medium", "fs-large");
-  body.classList.add("fs-" + fontSizes[currentFont]);
+  var html = document.documentElement;
+  html.classList.remove("fs-medium", "fs-large");
+  if (currentFS === 1) html.classList.add("fs-medium");
+  if (currentFS === 2) html.classList.add("fs-large");
+  var level = FS_LEVELS[currentFS];
   var btn = document.getElementById("btn-fs");
-  var label = document.getElementById("fs-label");
+  var lbl = document.getElementById("fs-label");
   if (btn) {
-    btn.querySelector(".fb2").textContent = fontDisplays[fontSizes[currentFont]];
+    btn.querySelector(".fs-icon").textContent = FS_ICONS[level];
+    btn.className = "fsbtn" + (currentFS > 0 ? " on" : "");
   }
-  if (label) {
-    label.textContent = lang === "pt" ? "Texto" : "Text";
-  }
+  if (lbl) lbl.textContent = FS_LABELS[level][lang];
+  if (window.localStorage) localStorage.setItem("integr8_fs", level);
 }
 
+function cycleFontSize() {
+  currentFS = (currentFS + 1) % 3;
+  applyFontSize();
+}
 
-document.body.classList.add("fs-normal");
+detectSystemFont();
 render();
 </script>
 </body>
