@@ -1,263 +1,295 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integr8 â€” Body Measurement Guide</title>
+<title>Integr8 Measurement Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --brand:#1a1a1a;
-  --accent:#C8F06A;
-  --text:#1a1a1a;
-  --muted:#6b6b6b;
-  --border:#e5e5e5;
-  --surface:#f7f7f5;
-  --card:#ffffff;
-  --ff-head:'Syne',sans-serif;
-  --ff-body:'DM Sans',sans-serif;
-  --r:12px;
-}
-body{font-family:var(--ff-body);color:var(--text);background:#f7f7f5;padding:16px;max-width:520px;margin:0 auto}
-.header{background:var(--brand);color:#fff;padding:28px 24px 22px;border-radius:var(--r);margin-bottom:16px;position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:var(--accent);border-radius:50%;opacity:.1}
-.logo{font-family:var(--ff-head);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
-.h1{font-family:var(--ff-head);font-size:24px;font-weight:700;line-height:1.15;margin-bottom:6px}
-.sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
-.lang-row{display:flex;gap:6px;margin-top:14px}
-.lb{padding:4px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-family:var(--ff-body);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
-.lb.on{background:var(--accent);border-color:var(--accent);color:#1a1a1a}
-.gr{display:flex;gap:10px;margin-bottom:16px}
-.gb{flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--ff-head);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.06em;text-transform:uppercase}
-.gb.on{border-color:var(--brand);background:var(--brand);color:var(--accent)}
-.cc{background:var(--surface);border-radius:var(--r);padding:16px 18px;margin-bottom:16px;border:.5px solid var(--border)}
-.sl{font-family:var(--ff-head);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.cl{list-style:none;display:flex;flex-direction:column;gap:7px}
-.ci{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45;color:var(--muted);cursor:pointer}
-.cb{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;background:var(--card)}
-.ci.ck .cb{background:var(--brand);border-color:var(--brand)}
-.ci.ck .cb::after{content:'';width:8px;height:5px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg) translateY(-1px)}
-.ci.ck span{color:var(--text)}
-.mc{background:var(--card);border-radius:var(--r);border:1.5px solid var(--border);margin-bottom:10px;overflow:hidden;cursor:pointer;transition:border-color .2s}
-.mc:hover{border-color:rgba(26,26,26,.3)}
-.mc.on{border-color:var(--brand)}
-.mh{padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-.mn{font-family:var(--ff-head);font-size:14px;font-weight:700;display:flex;align-items:center;gap:9px}
-.md{width:9px;height:9px;border-radius:50%;background:var(--accent);border:1.5px solid var(--brand);flex-shrink:0}
-.ms{font-size:11px;color:var(--muted);margin-top:2px;padding-left:18px}
-.mt{font-size:18px;color:var(--muted);transition:transform .2s;font-weight:300;line-height:1}
-.mc.on .mt{transform:rotate(45deg)}
-.mb{display:none;padding:0 16px 16px}
-.mc.on .mb{display:block}
-.pw{border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(--surface);border:.5px solid var(--border);min-height:60px}
-.pw img{width:100%;display:block;object-fit:cover;max-height:600px;object-position:center center}
-.pp{min-height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--muted);font-size:12px;padding:20px}
-.pp span{font-size:22px}
-.vs{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:8px;border:1px dashed var(--border);padding:10px 12px;margin-bottom:10px;font-size:12px;color:var(--muted)}
-.vi{width:26px;height:26px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);font-size:9px;padding-left:2px}
-.stl{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
-.st{display:flex;gap:9px;font-size:13px;line-height:1.5;color:var(--text)}
-.sn{width:20px;height:20px;border-radius:50%;background:var(--brand);color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:var(--ff-head)}
-.tb{background:var(--surface);border-radius:8px;border-left:3px solid var(--accent);padding:9px 11px;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
-.tb strong{color:var(--text);font-weight:500}
-.eb{background:var(--surface);border-radius:8px;border-left:3px solid #E24B4A;padding:9px 11px;font-size:12px;color:var(--muted);line-height:1.5}
-.eb strong{color:#E24B4A;font-weight:500}
-.gn{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:10px;background:var(--surface);color:var(--muted);border:.5px solid var(--border);margin-left:5px;vertical-align:middle}
-.ft{background:var(--surface);border-radius:var(--r);border:.5px solid var(--border);padding:14px 18px;font-size:12px;color:var(--muted);line-height:1.6;text-align:center;margin-top:4px}
-.ft strong{color:var(--text);font-family:var(--ff-head);font-size:13px}
+:root{--brand:#1a1a1a;--accent:#C8F06A;--text:#1a1a1a;--muted:#6b6b6b;--border:#e5e5e5;--surface:#f7f7f5;--card:#fff;--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--r:12px}
+body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max-width:520px;margin:0 auto}
+.hdr{background:var(--brand);color:#fff;padding:28px 24px 22px;border-radius:var(--r);margin-bottom:16px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:var(--accent);border-radius:50%;opacity:.1}
+.logo{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+.htitle{font-family:var(--fh);font-size:24px;font-weight:700;line-height:1.15;margin-bottom:6px}
+.hsub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5}
+.lrow{display:flex;gap:6px;margin-top:14px}
+.lbtn{padding:4px 14px;border-radius:20px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:rgba(255,255,255,.6);font-family:var(--fb);font-size:12px;font-weight:500;cursor:pointer;transition:all .2s}
+.lbtn.on{background:var(--accent);border-color:var(--accent);color:#1a1a1a}
+.grow{display:flex;gap:10px;margin-bottom:16px}
+.gbtn{flex:1;padding:12px;border-radius:var(--r);border:1.5px solid var(--border);background:var(--card);color:var(--muted);font-family:var(--fh);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.06em;text-transform:uppercase}
+.gbtn.on{border-color:var(--brand);background:var(--brand);color:var(--accent)}
+.ccard{background:var(--surface);border-radius:var(--r);padding:16px 18px;margin-bottom:16px;border:.5px solid var(--border)}
+.slbl{font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.clist{list-style:none;display:flex;flex-direction:column;gap:7px}
+.citem{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45;color:var(--muted);cursor:pointer}
+.cbox{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s;background:var(--card)}
+.citem.ck .cbox{background:var(--brand);border-color:var(--brand)}
+.citem.ck .cbox::after{content:'';width:8px;height:5px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg) translateY(-1px)}
+.citem.ck span{color:var(--text)}
+.mcard{background:var(--card);border-radius:var(--r);border:1.5px solid var(--border);margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.mcard:hover{border-color:rgba(26,26,26,.3)}
+.mcard.on{border-color:var(--brand)}
+.mhdr{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.mname{font-family:var(--fh);font-size:14px;font-weight:700;display:flex;align-items:center;gap:9px}
+.mdot{width:9px;height:9px;border-radius:50%;background:var(--accent);border:1.5px solid var(--brand);flex-shrink:0}
+.msub{font-size:11px;color:var(--muted);margin-top:2px;padding-left:18px}
+.mtog{font-size:20px;color:var(--muted);transition:transform .2s;line-height:1}
+.mcard.on .mtog{transform:rotate(45deg)}
+.mbody{display:none;padding:0 16px 16px}
+.mcard.on .mbody{display:block}
+.photo{border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(--surface);border:.5px solid var(--border)}
+.photo img{width:100%;display:block}
+.nophoto{min-height:100px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;padding:20px}
+.vslot{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:8px;border:1px dashed var(--border);padding:10px 12px;margin-bottom:10px;font-size:12px;color:var(--muted)}
+.vicon{width:26px;height:26px;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--accent);font-size:11px}
+.slist{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.sitem{display:flex;gap:9px;font-size:13px;line-height:1.5;color:var(--text)}
+.snum{width:20px;height:20px;border-radius:50%;background:var(--brand);color:var(--accent);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:var(--fh)}
+.tipbox{background:var(--surface);border-radius:8px;border-left:3px solid var(--accent);padding:9px 11px;font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:8px}
+.tipbox b{color:var(--text);font-weight:500}
+.errbox{background:var(--surface);border-radius:8px;border-left:3px solid #E24B4A;padding:9px 11px;font-size:12px;color:var(--muted);line-height:1.5}
+.errbox b{color:#E24B4A;font-weight:500}
+.gnote{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:10px;background:var(--surface);color:var(--muted);border:.5px solid var(--border);margin-left:5px;vertical-align:middle}
+.footer{background:var(--surface);border-radius:var(--r);border:.5px solid var(--border);padding:14px 18px;font-size:12px;color:var(--muted);line-height:1.6;text-align:center;margin-top:4px}
+.footer b{color:var(--text);font-family:var(--fh);font-size:13px;display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
-
-<div class="header">
+<div class="hdr">
   <div class="logo">Integr8</div>
-  <div class="h1" id="t-title">Body Measurement Guide</div>
-  <div class="sub" id="t-sub">Follow these steps to take your measurements correctly at home. Accurate data = better programming.</div>
-  <div class="lang-row">
-    <button class="lb on" onclick="setLang('en')">EN</button>
-    <button class="lb" onclick="setLang('pt')">PT</button>
+  <div class="htitle" id="el-title"></div>
+  <div class="hsub" id="el-sub"></div>
+  <div class="lrow">
+    <button class="lbtn on" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lbtn" id="btn-pt" onclick="setLang('pt')">PT</button>
   </div>
 </div>
-
-<div class="gr">
-  <button class="gb on" onclick="setGender('male')">&#9794; <span id="t-male">Male</span></button>
-  <button class="gb" onclick="setGender('female')">&#9792; <span id="t-female">Female</span></button>
+<div class="grow">
+  <button class="gbtn on" id="btn-male" onclick="setGender('male')">&#9794; <span id="el-male"></span></button>
+  <button class="gbtn" id="btn-female" onclick="setGender('female')">&#9792; <span id="el-female"></span></button>
 </div>
-
-<div class="cc">
-  <div class="sl" id="t-cl-label">Before you start &#8212; checklist</div>
-  <ul class="cl" id="checklist"></ul>
+<div class="ccard">
+  <div class="slbl" id="el-cl-label"></div>
+  <ul class="clist" id="el-checklist"></ul>
 </div>
-
-<div id="measures"></div>
-
-<div class="ft">
-  <strong id="t-ft-title">Send your measurements to Integr8</strong><br>
-  <span id="t-ft-body">After taking all measurements, record your values and send them through the app or directly to your coach. Take photos too &#8212; front, side, and back &#8212; same time, same lighting.</span>
+<div id="el-measures"></div>
+<div class="footer">
+  <b id="el-ft-title"></b>
+  <span id="el-ft-body"></span>
 </div>
-
 <script>
-const IMGS = {
-  peso_male:        'images/peso_masculino.jpg',
-  peso_female:      'images/peso_feminino.jpg',
-  estatura_male:    'images/estatura_masculino.jpg',
-  estatura_female:  'images/estatura_feminino.jpg',
-  neck_male:        'images/pescoco_masculino.jpg',
-  neck_female:      'images/pescoco_feminino.jpg',
-  waist_male:       'images/cintura_masculino.jpg',
-  waist_female:     'images/cintura_feminino.jpg',
-  hip_male:         'images/quadril_masculino.jpg',
-  hip_female:       'images/quadril_feminino.jpg',
+var IMGS = {
+  peso_male:            "images/peso_masculino.jpg",
+  peso_female:          "images/peso_feminino.jpg",
+  estatura_male:        "images/estatura_masculino.jpg",
+  estatura_female:      "images/estatura_feminino.jpg",
+  neck_male:            "images/pescoco_masculino.jpg",
+  neck_female:          "images/pescoco_feminino.jpg",
+  neck_err_male:        "images/pescoco_erro_masculino.jpg",
+  neck_err_female:      "images/pescoco_erro_feminino.jpg",
+  waist_male:           "images/cintura_masculino.jpg",
+  waist_female:         "images/cintura_feminino.jpg",
+  waist_err_female:     "images/cintura_erro_feminino.jpg",
+  hip_female:           "images/quadril_feminino.jpg"
 };
 
-const TXT = {
+var TXT = {
   en: {
-    title:'Body Measurement Guide',
-    sub:'Follow these steps to take your measurements correctly at home. Accurate data = better programming.',
-    male:'Male', female:'Female',
-    clLabel:'Before you start â€” checklist',
-    ftTitle:'Send your measurements to Integr8',
-    ftBody:'After taking all measurements, record your values and send them through the app or directly to your coach. Take photos too â€” front, side, and back â€” same time, same lighting.',
-    checks:[
-      'Morning, fasted, after using the bathroom',
-      'Minimal clothing â€” underwear or tight shorts',
-      'Stand straight, feet shoulder-width apart',
-      'Have a flexible tape measure ready',
-      'Use a mirror to check alignment',
-      'Measure twice â€” record the average',
+    title: "Body Measurement Guide",
+    sub: "Follow these steps to take your measurements at home. Accurate data = better programming.",
+    male: "Male", female: "Female",
+    clLabel: "Before you start - checklist",
+    ftTitle: "Send your measurements to Integr8",
+    ftBody: "Record your values and send them through the app or directly to your coach. Take photos too - front, side, and back - same time, same lighting.",
+    videoSoon: "Video tutorial coming soon",
+    imgSoon: "Image coming soon",
+    errorLabel: "Common mistake",
+    checks: [
+      "Morning, fasted, after using the bathroom",
+      "Minimal clothing - underwear or tight shorts",
+      "Stand straight, feet shoulder-width apart",
+      "Have a flexible tape measure ready",
+      "Use a mirror to check alignment",
+      "Measure twice - record the average"
     ],
-    measures:[
-      {id:'weight', imgKey:'peso', name:'Body Weight', sub:'Scale Â· morning, fasted', gnote:null,
-       steps:['Place scale on a hard, flat surface â€” not carpet.','Step on barefoot, stand still, distribute weight evenly.','Read and record the exact number. Do not round.','Weigh yourself 2 days in a row and average the result.'],
-       tip:'<strong>Tip:</strong> Weight fluctuates up to 2.7 kg throughout the day. Always weigh at the same time, under the same conditions.',
-       err:'<strong>Common mistake:</strong> Weighing after eating or training â€” results will not be comparable session to session.'},
-      {id:'height', imgKey:'estatura', name:'Height', sub:'Wall + flat object', gnote:null,
-       steps:['Stand barefoot against a flat wall. Heels must touch the wall.','Stand tall: chin parallel to the floor, look straight ahead.','Place a flat object (book, phone) on top of your head at 90Â° to the wall.','Mark the wall lightly. Measure from floor to mark.'],
-       tip:'<strong>Tip:</strong> Measure in the morning â€” spinal compression during the day can reduce height by 1â€“2 cm.',
-       err:'<strong>Common mistake:</strong> Looking up or down shifts the measurement. Keep your chin perfectly level.'},
-      {id:'neck', imgKey:'neck', name:'Neck', sub:'Tape Â· mid-neck', gnote:'men â€” below larynx / women â€” mid-neck',
-       steps:['Stand upright, head neutral â€” do not tilt.','Men: tape just below the larynx (Adam apple), the narrowest point.','Women: tape at the midpoint of the neck.','Tape should be snug but not compressing skin.','Read at the end of a normal exhale.'],
-       tip:'<strong>Tip:</strong> The neck measurement feeds into the US Navy body fat formula â€” keep it consistent every time.',
-       err:'<strong>Common mistake:</strong> Tilting the chin down compresses neck tissue and gives a falsely smaller reading.'},
-      {id:'waist', imgKey:'waist', name:'Waist', sub:'Tape Â· narrowest point', gnote:null,
-       steps:['Stand relaxed, feet together, abdomen not sucked in.','Find the natural waist â€” narrowest point between your last rib and hip bone.','Wrap tape horizontally. Check in a mirror â€” front and back must be level.','Breathe normally, measure at end of a relaxed exhale.'],
-       tip:'<strong>Tip:</strong> Waist can vary up to 4 cm with breathing. Always measure at end of exhale.',
-       err:'<strong>Common mistake:</strong> Measuring at the navel instead of the narrowest point gives a larger, inconsistent number.'},
-      {id:'hip', imgKey:'hip', name:'Hip / Glutes', sub:'Tape Â· widest point', gnote:null,
-       steps:['Stand with feet together, glutes relaxed â€” do not flex.','Find the widest point â€” usually 7â€“9 cm below the hip bone.','Wrap tape horizontally. Confirm it is level all the way around.','Read at normal breath.'],
-       tip:'<strong>Tip:</strong> Waist-to-hip ratio (waist Ã· hip) is a key health marker. Keep both measurements consistent.',
-       err:'<strong>Common mistake:</strong> Shifting weight to one side makes the tape diagonal and inflates the reading.'},
-    ],
-    videoSoon:'Video tutorial coming soon',
+    measures: [
+      { id: "weight", name: "Body Weight", sub: "Scale - morning, fasted", gnote: "",
+        img: { male: "peso_male", female: "peso_female" }, errImg: {},
+        steps: ["Place scale on a hard flat surface - not carpet.", "Step on barefoot, stand still, weight evenly distributed.", "Read and record the exact number. Do not round.", "Weigh 2 days in a row and average the result."],
+        tip: "<b>Tip:</b> Weight fluctuates up to 2.7 kg during the day. Always weigh at the same time.",
+        err: "<b>Common mistake:</b> Weighing after eating or training - results will not be comparable." },
+      { id: "height", name: "Height", sub: "Wall + flat object", gnote: "",
+        img: { male: "estatura_male", female: "estatura_female" }, errImg: {},
+        steps: ["Stand barefoot against a flat wall. Heels must touch the wall.", "Stand tall: chin parallel to the floor, look straight ahead.", "Place a flat object on top of your head at 90 degrees to the wall.", "Mark the wall lightly. Measure from floor to mark."],
+        tip: "<b>Tip:</b> Measure in the morning - spinal compression can reduce height by 1-2 cm during the day.",
+        err: "<b>Common mistake:</b> Looking up or down shifts the measurement. Keep your chin level." },
+      { id: "neck", name: "Neck", sub: "Tape - mid-neck", gnote: "men - below larynx / women - mid-neck",
+        img: { male: "neck_male", female: "neck_female" }, errImg: { male: "neck_err_male", female: "neck_err_female" },
+        steps: ["Stand upright, head neutral - do not tilt.", "Men: place tape just below the larynx, the narrowest point.", "Women: place tape at the midpoint of the neck.", "Tape should be snug but not compressing skin.", "Read at the end of a normal exhale."],
+        tip: "<b>Tip:</b> The neck measurement feeds into the US Navy body fat formula - keep it consistent.",
+        err: "<b>Common mistake:</b> Tilting the chin down compresses neck tissue and gives a smaller reading." },
+      { id: "waist", name: "Waist", sub: "Tape - narrowest point", gnote: "",
+        img: { male: "waist_male", female: "waist_female" }, errImg: { female: "waist_err_female" },
+        steps: ["Stand relaxed, feet together, abdomen not sucked in.", "Find the natural waist - narrowest point between last rib and hip bone.", "Wrap tape horizontally. Check in a mirror - front and back must be level.", "Breathe normally, measure at end of a relaxed exhale."],
+        tip: "<b>Tip:</b> Waist can vary up to 4 cm with breathing. Always measure at end of exhale.",
+        err: "<b>Common mistake:</b> Measuring at the navel gives a larger, inconsistent number." },
+      { id: "hip", name: "Hip / Glutes", sub: "Tape - widest point", gnote: "women only",
+        img: { female: "hip_female" }, errImg: {},
+        steps: ["Stand with feet together, glutes relaxed - do not flex.", "Find the widest point - usually 7-9 cm below the hip bone.", "Wrap tape horizontally. Confirm it is level all the way around.", "Read at normal breath."],
+        tip: "<b>Tip:</b> Waist-to-hip ratio is a key health marker. Keep both measurements consistent.",
+        err: "<b>Common mistake:</b> Shifting weight to one side makes the tape diagonal and inflates the reading." }
+    ]
   },
   pt: {
-    title:'Guia de Medidas Corporais',
-    sub:'Siga o passo a passo para tirar suas medidas corretamente em casa. Dados precisos = programaÃ§Ã£o melhor.',
-    male:'Masculino', female:'Feminino',
-    clLabel:'Antes de comeÃ§ar â€” checklist',
-    ftTitle:'Envie suas medidas para a Integr8',
-    ftBody:'ApÃ³s registrar todas as medidas, envie pelo app ou diretamente para seu coach. Tire fotos tambÃ©m â€” frente, lateral e costas â€” mesmo horÃ¡rio e iluminaÃ§Ã£o.',
-    checks:[
-      'De manhÃ£, em jejum, apÃ³s ir ao banheiro',
-      'Roupa mÃ­nima â€” underwear ou short justo',
-      'Em pÃ©, peso distribuÃ­do, pÃ©s na largura dos ombros',
-      'Tenha uma fita mÃ©trica flexÃ­vel em mÃ£os',
-      'Use um espelho para verificar o alinhamento',
-      'MeÃ§a duas vezes â€” registre a mÃ©dia',
+    title: "Guia de Medidas Corporais",
+    sub: "Siga o passo a passo para tirar suas medidas em casa. Dados precisos = programacao melhor.",
+    male: "Masculino", female: "Feminino",
+    clLabel: "Antes de comecar - checklist",
+    ftTitle: "Envie suas medidas para a Integr8",
+    ftBody: "Registre seus valores e envie pelo app ou diretamente para seu coach. Tire fotos tambem - frente, lateral e costas - mesmo horario e iluminacao.",
+    videoSoon: "Video tutorial em breve",
+    imgSoon: "Imagem em breve",
+    errorLabel: "Erro comum",
+    checks: [
+      "De manha, em jejum, apos ir ao banheiro",
+      "Roupa minima - underwear ou short justo",
+      "Em pe, peso distribuido, pes na largura dos ombros",
+      "Tenha uma fita metrica flexivel em maos",
+      "Use um espelho para verificar o alinhamento",
+      "Meca duas vezes - registre a media"
     ],
-    measures:[
-      {id:'weight', imgKey:'peso', name:'Peso Corporal', sub:'BalanÃ§a Â· manhÃ£, em jejum', gnote:null,
-       steps:['Coloque a balanÃ§a em superfÃ­cie rÃ­gida e plana â€” nÃ£o em tapete.','Suba descalÃ§o(a), fique imÃ³vel, distribua o peso igualmente.','Leia e anote o nÃºmero exato. NÃ£o arredonde.','Pese dois dias seguidos e calcule a mÃ©dia.'],
-       tip:'<strong>Dica:</strong> O peso varia atÃ© 2,7 kg ao longo do dia. Pese sempre no mesmo horÃ¡rio, nas mesmas condiÃ§Ãµes.',
-       err:'<strong>Erro comum:</strong> Pesar apÃ³s comer ou treinar â€” os resultados nÃ£o serÃ£o comparÃ¡veis entre as sessÃµes.'},
-      {id:'height', imgKey:'estatura', name:'Estatura', sub:'Parede + objeto plano', gnote:null,
-       steps:['Fique descalÃ§o(a) encostado(a) em parede plana. Calcanhares tocando a parede.','Em pÃ© firme: queixo paralelo ao chÃ£o, olhar reto para frente.','Coloque um objeto plano (livro, celular) no topo da cabeÃ§a a 90Â° em relaÃ§Ã£o Ã  parede.','Marque levemente com lÃ¡pis. MeÃ§a do chÃ£o atÃ© a marca.'],
-       tip:'<strong>Dica:</strong> MeÃ§a de manhÃ£ â€” a compressÃ£o da coluna ao longo do dia reduz a estatura em ~1â€“2 cm.',
-       err:'<strong>Erro comum:</strong> Olhar para cima ou para baixo altera a medida. Mantenha o queixo nivelado.'},
-      {id:'neck', imgKey:'neck', name:'PescoÃ§o', sub:'Fita Â· ponto mÃ©dio', gnote:'homens â€” abaixo da laringe / mulheres â€” ponto mÃ©dio',
-       steps:['Fique em pÃ©, cabeÃ§a neutra â€” sem inclinar.','Homens: fita logo abaixo da laringe (pomo de adÃ£o), ponto mais estreito.','Mulheres: fita no ponto mÃ©dio do pescoÃ§o.','A fita deve estar firme, sem comprimir.','Leia ao final de uma expiraÃ§Ã£o normal.'],
-       tip:'<strong>Dica:</strong> O pescoÃ§o entra na fÃ³rmula da Marinha dos EUA para estimar % de gordura â€” mantenha a mediÃ§Ã£o consistente.',
-       err:'<strong>Erro comum:</strong> Inclinar o queixo para baixo comprime o tecido do pescoÃ§o e dÃ¡ uma leitura menor.'},
-      {id:'waist', imgKey:'waist', name:'Cintura', sub:'Fita Â· ponto mais estreito', gnote:null,
-       steps:['Fique em pÃ©, relaxado(a), pÃ©s juntos, abdÃ´men sem contraÃ§Ã£o.','Encontre a cintura natural â€” ponto mais estreito entre a Ãºltima costela e o osso do quadril.','Enrole a fita na horizontal. Verifique no espelho â€” frente e costas devem estar niveladas.','Respire normalmente e meÃ§a ao final de uma expiraÃ§Ã£o relaxada.'],
-       tip:'<strong>Dica:</strong> A cintura pode variar 4 cm com a respiraÃ§Ã£o. Sempre meÃ§a ao final da expiraÃ§Ã£o.',
-       err:'<strong>Erro comum:</strong> Medir no umbigo dÃ¡ um nÃºmero maior e inconsistente com a cintura natural.'},
-      {id:'hip', imgKey:'hip', name:'Quadril / GlÃºteos', sub:'Fita Â· ponto mais largo', gnote:null,
-       steps:['Fique em pÃ©, pÃ©s juntos, glÃºteos relaxados â€” nÃ£o contraia.','Encontre o ponto mais largo â€” geralmente 7â€“9 cm abaixo do osso do quadril.','Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.','Leia na respiraÃ§Ã£o normal.'],
-       tip:'<strong>Dica:</strong> A relaÃ§Ã£o cintura/quadril Ã© um indicador de saÃºde importante. Mantenha as duas medidas consistentes.',
-       err:'<strong>Erro comum:</strong> Deslocar o peso para um lado deixa a fita diagonal e aumenta a leitura.'},
-    ],
-    videoSoon:'VÃ­deo tutorial em breve',
-  },
+    measures: [
+      { id: "weight", name: "Peso Corporal", sub: "Balanca - manha, em jejum", gnote: "",
+        img: { male: "peso_male", female: "peso_female" }, errImg: {},
+        steps: ["Coloque a balanca em superficie rigida e plana - nao em tapete.", "Suba descalco(a), fique imovel, distribua o peso igualmente.", "Leia e anote o numero exato. Nao arredonde.", "Pese dois dias seguidos e calcule a media."],
+        tip: "<b>Dica:</b> O peso varia ate 2,7 kg ao longo do dia. Pese sempre no mesmo horario.",
+        err: "<b>Erro comum:</b> Pesar apos comer ou treinar - os resultados nao serao comparaveis." },
+      { id: "height", name: "Estatura", sub: "Parede + objeto plano", gnote: "",
+        img: { male: "estatura_male", female: "estatura_female" }, errImg: {},
+        steps: ["Fique descalco(a) encostado(a) em parede plana. Calcanhares tocando a parede.", "Em pe firme: queixo paralelo ao chao, olhar reto para frente.", "Coloque um objeto plano no topo da cabeca a 90 graus em relacao a parede.", "Marque levemente com lapis. Meca do chao ate a marca."],
+        tip: "<b>Dica:</b> Meca de manha - a compressao da coluna reduz a estatura em 1-2 cm ao longo do dia.",
+        err: "<b>Erro comum:</b> Olhar para cima ou para baixo altera a medida. Mantenha o queixo nivelado." },
+      { id: "neck", name: "Pescoco", sub: "Fita - ponto medio", gnote: "homens - abaixo da laringe / mulheres - ponto medio",
+        img: { male: "neck_male", female: "neck_female" }, errImg: { male: "neck_err_male", female: "neck_err_female" },
+        steps: ["Fique em pe, cabeca neutra - sem inclinar.", "Homens: fita logo abaixo da laringe, ponto mais estreito.", "Mulheres: fita no ponto medio do pescoco.", "A fita deve estar firme, sem comprimir.", "Leia ao final de uma expiracao normal."],
+        tip: "<b>Dica:</b> O pescoco entra na formula da Marinha dos EUA para estimar percentual de gordura.",
+        err: "<b>Erro comum:</b> Inclinar o queixo para baixo comprime o tecido e da uma leitura menor." },
+      { id: "waist", name: "Cintura", sub: "Fita - ponto mais estreito", gnote: "",
+        img: { male: "waist_male", female: "waist_female" }, errImg: { female: "waist_err_female" },
+        steps: ["Fique em pe, relaxado(a), pes juntos, abdomen sem contracao.", "Encontre a cintura natural - ponto mais estreito entre a ultima costela e o osso do quadril.", "Enrole a fita na horizontal. Verifique no espelho - frente e costas devem estar niveladas.", "Respire normalmente e meca ao final de uma expiracao relaxada."],
+        tip: "<b>Dica:</b> A cintura pode variar 4 cm com a respiracao. Sempre meca ao final da expiracao.",
+        err: "<b>Erro comum:</b> Medir no umbigo da um numero maior e inconsistente com a cintura natural." },
+      { id: "hip", name: "Quadril / Gluteos", sub: "Fita - ponto mais largo", gnote: "somente mulheres",
+        img: { female: "hip_female" }, errImg: {},
+        steps: ["Fique em pe, pes juntos, gluteos relaxados - nao contraia.", "Encontre o ponto mais largo - geralmente 7-9 cm abaixo do osso do quadril.", "Enrole a fita na horizontal. Use espelho para confirmar o alinhamento em toda a volta.", "Leia na respiracao normal."],
+        tip: "<b>Dica:</b> A relacao cintura/quadril e um indicador de saude importante. Mantenha as duas medidas consistentes.",
+        err: "<b>Erro comum:</b> Deslocar o peso para um lado deixa a fita diagonal e aumenta a leitura." }
+    ]
+  }
 };
 
-let lang='en', gender='male', active=null;
-const checked=new Set();
+var lang = "en";
+var gender = "male";
+var active = null;
+var checked = [];
 
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lb').forEach((b,i)=>b.classList.toggle('on',(i===0&&l==='en')||(i===1&&l==='pt')));
+function setLang(l) {
+  lang = l;
+  document.getElementById("btn-en").className = "lbtn" + (l === "en" ? " on" : "");
+  document.getElementById("btn-pt").className = "lbtn" + (l === "pt" ? " on" : "");
   render();
 }
 
-function setGender(g){
-  gender=g;
-  document.querySelectorAll('.gb').forEach((b,i)=>b.classList.toggle('on',(i===0&&g==='male')||(i===1&&g==='female')));
+function setGender(g) {
+  gender = g;
+  document.getElementById("btn-male").className = "gbtn" + (g === "male" ? " on" : "");
+  document.getElementById("btn-female").className = "gbtn" + (g === "female" ? " on" : "");
   renderMeasures();
 }
 
-function toggleCheck(i){
-  checked.has(i)?checked.delete(i):checked.add(i);
+function toggleCheck(i) {
+  var idx = checked.indexOf(i);
+  if (idx === -1) { checked.push(i); } else { checked.splice(idx, 1); }
   renderChecklist();
 }
 
-function toggleMeasure(id){
-  active=active===id?null:id;
+function toggleMeasure(id) {
+  active = (active === id) ? null : id;
   renderMeasures();
 }
 
-function imgHTML(imgKey){
-  const src=IMGS[imgKey+'_'+gender];
-  if(!src) return '<div class="pp"><span>&#128247;</span>Image coming soon</div>';
-  return '<img src="'+src+'" alt="" loading="lazy" onerror="this.parentNode.innerHTML='<div class=pp><span>&#128247;</span>Image coming soon</div>'">';
+function photoHTML(key) {
+  if (!key) return "<div class=\"nophoto\">" + TXT[lang].imgSoon + "</div>";
+  var src = IMGS[key];
+  if (!src) return "<div class=\"nophoto\">" + TXT[lang].imgSoon + "</div>";
+  return "<img src=\"" + src + "\" alt=\"\" loading=\"lazy\">";
 }
 
-function renderChecklist(){
-  const t=TXT[lang];
-  document.getElementById('t-cl-label').textContent=t.clLabel;
-  document.getElementById('checklist').innerHTML=t.checks.map((c,i)=>
-    '<li class="ci'+(checked.has(i)?' ck':'')+'" onclick="toggleCheck('+i+')"><div class="cb"></div><span>'+c+'</span></li>'
-  ).join('');
+function renderChecklist() {
+  var t = TXT[lang];
+  document.getElementById("el-cl-label").textContent = t.clLabel;
+  var html = "";
+  for (var i = 0; i < t.checks.length; i++) {
+    var on = checked.indexOf(i) !== -1;
+    html += "<li class=\"citem" + (on ? " ck" : "") + "\" onclick=\"toggleCheck(" + i + ")\">";
+    html += "<div class=\"cbox\"></div><span>" + t.checks[i] + "</span></li>";
+  }
+  document.getElementById("el-checklist").innerHTML = html;
 }
 
-function renderMeasures(){
-  const t=TXT[lang];
-  document.getElementById('measures').innerHTML=t.measures.map(m=>{
-    const isOn=active===m.id;
-    const gn=m.gnote?'<span class="gn">'+m.gnote+'</span>':'';
-    const photo='<div class="pw">'+imgHTML(m.imgKey)+'</div>';
-    const steps=m.steps.map((s,i)=>'<li class="st"><span class="sn">'+(i+1)+'</span><span>'+s+'</span></li>').join('');
-    return '<div class="mc'+(isOn?' on':'')+'" onclick="toggleMeasure(''+m.id+'')">'+
-      '<div class="mh"><div><div class="mn"><span class="md"></span>'+m.name+gn+'</div><div class="ms">'+m.sub+'</div></div><span class="mt">+</span></div>'+
-      '<div class="mb">'+photo+
-      '<div class="vs"><div class="vi">&#9658;</div><span>'+t.videoSoon+'</span></div>'+
-      '<ul class="stl">'+steps+'</ul>'+
-      '<div class="tb">'+m.tip+'</div>'+
-      '<div class="eb">'+m.err+'</div>'+
-      '</div></div>';
-  }).join('');
+function renderMeasures() {
+  var t = TXT[lang];
+  var html = "";
+  for (var i = 0; i < t.measures.length; i++) {
+    var m = t.measures[i];
+    var isOn = (active === m.id);
+
+    var imgKey = m.img[gender] || null;
+    var errKey = m.errImg[gender] || null;
+
+    if (!imgKey && m.id === "hip" && gender === "male") {
+      continue;
+    }
+
+    var gn = m.gnote ? "<span class=\"gnote\">" + m.gnote + "</span>" : "";
+    var steps = "";
+    for (var j = 0; j < m.steps.length; j++) {
+      steps += "<li class=\"sitem\"><span class=\"snum\">" + (j+1) + "</span><span>" + m.steps[j] + "</span></li>";
+    }
+
+    var errSection = "";
+    if (errKey) {
+      errSection = "<div class=\"photo\" style=\"margin-top:10px\">" + photoHTML(errKey) + "</div>";
+    }
+
+    html += "<div class=\"mcard" + (isOn ? " on" : "") + "\">";
+    html += "<div class=\"mhdr\" onclick=\"toggleMeasure('" + m.id + "')\">";
+    html += "<div><div class=\"mname\"><span class=\"mdot\"></span>" + m.name + gn + "</div>";
+    html += "<div class=\"msub\">" + m.sub + "</div></div>";
+    html += "<span class=\"mtog\">+</span></div>";
+    html += "<div class=\"mbody\">";
+    html += "<div class=\"photo\">" + photoHTML(imgKey) + "</div>";
+    html += "<div class=\"vslot\"><div class=\"vicon\">&#9658;</div><span>" + t.videoSoon + "</span></div>";
+    html += "<ul class=\"slist\">" + steps + "</ul>";
+    html += "<div class=\"tipbox\">" + m.tip + "</div>";
+    html += "<div class=\"errbox\">" + m.err + "</div>";
+    html += errSection;
+    html += "</div></div>";
+  }
+  document.getElementById("el-measures").innerHTML = html;
 }
 
-function render(){
-  const t=TXT[lang];
-  document.getElementById('t-title').textContent=t.title;
-  document.getElementById('t-sub').textContent=t.sub;
-  document.getElementById('t-male').textContent=t.male;
-  document.getElementById('t-female').textContent=t.female;
-  document.getElementById('t-ft-title').textContent=t.ftTitle;
-  document.getElementById('t-ft-body').textContent=t.ftBody;
+function render() {
+  var t = TXT[lang];
+  document.getElementById("el-title").textContent = t.title;
+  document.getElementById("el-sub").textContent = t.sub;
+  document.getElementById("el-male").textContent = t.male;
+  document.getElementById("el-female").textContent = t.female;
+  document.getElementById("el-ft-title").textContent = t.ftTitle;
+  document.getElementById("el-ft-body").textContent = t.ftBody;
   renderChecklist();
   renderMeasures();
 }
@@ -266,4 +298,3 @@ render();
 </script>
 </body>
 </html>
-
