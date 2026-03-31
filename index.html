@@ -76,6 +76,9 @@ body{font-family:var(--fb);color:var(--text);background:#f7f7f5;padding:16px;max
   <ul class="clist" id="el-checklist"></ul>
 </div>
 <div id="el-measures"></div>
+
+<div id="el-photos"></div>
+
 <div class="footer">
   <b id="el-ft-title"></b>
   <span id="el-ft-body"></span>
@@ -292,7 +295,225 @@ function render() {
   document.getElementById("el-ft-body").textContent = t.ftBody;
   renderChecklist();
   renderMeasures();
+  renderPhotos();
 }
+
+
+var PHOTO_TXT = {
+  en: {
+    sectionTitle: "Progress photos",
+    sectionSub: "3 photos every check-in. Always the same conditions.",
+    protocol: [
+      { icon: "M", label: "Morning, fasted" },
+      { icon: "T", label: "Same time every check-in" },
+      { icon: "C", label: "Same clothing every time" },
+      { icon: "L", label: "Same location and lighting" }
+    ],
+    poses: [
+      {
+        id: "front",
+        name: "Front",
+        icon: "&#9651;",
+        rules: [
+          "Stand 1.5 to 2 meters from the camera.",
+          "Feet hip-width apart, arms slightly away from your sides.",
+          "Look straight ahead, chin parallel to the floor.",
+          "Relax your body completely - no posing, no flexing.",
+          "Camera at belly button height, on a stable surface or tripod."
+        ]
+      },
+      {
+        id: "side",
+        name: "Side",
+        icon: "&#9654;",
+        rules: [
+          "Turn 90 degrees - right side facing the camera.",
+          "Feet together, arms relaxed at your sides.",
+          "Look straight ahead, do not look at the camera.",
+          "Keep the same distance and camera height as the front photo."
+        ]
+      },
+      {
+        id: "back",
+        name: "Back",
+        icon: "&#9661;",
+        rules: [
+          "Turn completely around, back to the camera.",
+          "Feet hip-width apart, arms slightly away from your sides.",
+          "Look straight ahead, do not look over your shoulder.",
+          "Keep the same distance and camera height."
+        ]
+      }
+    ],
+    setupTitle: "Setup checklist",
+    setup: [
+      "Plain wall as background - white, beige or light gray. No furniture, mirrors or doors.",
+      "Natural light from the front - stand facing a window. Avoid backlighting.",
+      "No flash - flash creates shadows and changes the way your body looks.",
+      "Use the timer or ask someone to take the photo - no selfies.",
+      "Same underwear or tight shorts every time - nothing that compresses or hides body shape.",
+      "Hair up - tie it back so your neck and shoulders are fully visible."
+    ],
+    tipTitle: "Why consistency matters",
+    tip: "The comparison between photos taken under different conditions is misleading. A change in lighting, angle or clothing can make it look like nothing changed when everything did - or the opposite. Follow the same protocol every time and the photos will tell the truth.",
+    errTitle: "Most common mistakes",
+    errors: [
+      "Camera too high or too low - distorts body proportions.",
+      "Flexing or posing - hides real changes.",
+      "Different clothing each time - impossible to compare.",
+      "Bathroom mirror selfie - angle and lighting are never the same.",
+      "Photo taken at night with artificial light - skin tone and shadows change."
+    ]
+  },
+  pt: {
+    sectionTitle: "Fotos de progresso",
+    sectionSub: "3 fotos a cada check-in. Sempre nas mesmas condicoes.",
+    protocol: [
+      { icon: "M", label: "De manha, em jejum" },
+      { icon: "H", label: "Mesmo horario em cada check-in" },
+      { icon: "R", label: "Mesma roupa sempre" },
+      { icon: "L", label: "Mesmo local e iluminacao" }
+    ],
+    poses: [
+      {
+        id: "front",
+        name: "Frente",
+        icon: "&#9651;",
+        rules: [
+          "Fique a 1,5 a 2 metros da camera.",
+          "Pes na largura do quadril, bracos levemente afastados do corpo.",
+          "Olhar reto para frente, queixo paralelo ao chao.",
+          "Corpo completamente relaxado - sem posar, sem contrair.",
+          "Camera na altura do umbigo, em superficie estavel ou tripe."
+        ]
+      },
+      {
+        id: "side",
+        name: "Lateral",
+        icon: "&#9654;",
+        rules: [
+          "Vire 90 graus - lado direito para a camera.",
+          "Pes juntos, bracos relaxados ao longo do corpo.",
+          "Olhar reto para frente, nao olhe para a camera.",
+          "Mantenha a mesma distancia e altura da camera que a foto de frente."
+        ]
+      },
+      {
+        id: "back",
+        name: "Costas",
+        icon: "&#9661;",
+        rules: [
+          "Vire completamente de costas para a camera.",
+          "Pes na largura do quadril, bracos levemente afastados do corpo.",
+          "Olhar reto para frente, nao olhe por cima do ombro.",
+          "Mantenha a mesma distancia e altura da camera."
+        ]
+      }
+    ],
+    setupTitle: "Checklist de setup",
+    setup: [
+      "Parede lisa como fundo - branca, bege ou cinza claro. Sem moveis, espelhos ou portas.",
+      "Luz natural de frente - fique de frente para uma janela. Evite contraluz.",
+      "Sem flash - o flash cria sombras e muda a aparencia do corpo.",
+      "Use o timer ou peca para alguem tirar a foto - sem selfie.",
+      "Mesma roupa intima ou short justo sempre - nada que comprima ou esconda o corpo.",
+      "Cabelo preso - para que pescoco e ombros fiquem totalmente visiveis."
+    ],
+    tipTitle: "Por que a consistencia importa",
+    tip: "A comparacao entre fotos tiradas em condicoes diferentes e enganosa. Uma mudanca de iluminacao, angulo ou roupa pode parecer que nada mudou quando tudo mudou - ou o contrario. Siga sempre o mesmo protocolo e as fotos vao contar a verdade.",
+    errTitle: "Erros mais comuns",
+    errors: [
+      "Camera muito alta ou baixa - distorce as proporcoes do corpo.",
+      "Posar ou contrair - esconde as mudancas reais.",
+      "Roupa diferente em cada foto - impossivel comparar.",
+      "Selfie no espelho do banheiro - angulo e iluminacao nunca sao os mesmos.",
+      "Foto a noite com luz artificial - tom de pele e sombras mudam."
+    ]
+  }
+};
+
+function renderPhotos() {
+  var t = PHOTO_TXT[lang];
+  var html = "";
+
+  html += "<div style=\"background:var(--brand);color:#fff;border-radius:var(--r);padding:24px;margin-bottom:10px;position:relative;overflow:hidden;\">";
+  html += "<div style=\"position:absolute;bottom:-30px;left:-30px;width:120px;height:120px;background:var(--accent);border-radius:50%;opacity:.08\"></div>";
+  html += "<div style=\"font-family:var(--fh);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px\">Integr8</div>";
+  html += "<div style=\"font-family:var(--fh);font-size:20px;font-weight:700;margin-bottom:4px\">" + t.sectionTitle + "</div>";
+  html += "<div style=\"font-size:13px;color:rgba(255,255,255,.5)\">" + t.sectionSub + "</div>";
+  html += "<div style=\"display:flex;gap:8px;margin-top:16px;flex-wrap:wrap\">";
+  for (var i = 0; i < t.protocol.length; i++) {
+    var p = t.protocol[i];
+    html += "<div style=\"display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border-radius:20px;padding:5px 10px;\">";
+    html += "<span style=\"width:20px;height:20px;border-radius:50%;background:var(--accent);color:#1a1a1a;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--fh);flex-shrink:0\">" + p.icon + "</span>";
+    html += "<span style=\"font-size:11px;color:rgba(255,255,255,.7)\">" + p.label + "</span></div>";
+  }
+  html += "</div></div>";
+
+  // 3 pose cards
+  for (var i = 0; i < t.poses.length; i++) {
+    var pose = t.poses[i];
+    html += "<div class=\"mcard\" style=\"margin-bottom:10px\">";
+    html += "<div class=\"mhdr\" onclick=\"togglePose('" + pose.id + "')\"><div>";
+    html += "<div class=\"mname\"><span style=\"width:9px;height:9px;border-radius:50%;background:var(--accent);border:1.5px solid var(--brand);flex-shrink:0;display:inline-block\"></span>";
+    html += "&nbsp;" + pose.name + "</div></div>";
+    html += "<span class=\"mtog\" id=\"ptog-" + pose.id + "\">+</span></div>";
+    html += "<div class=\"mbody\" id=\"pbody-" + pose.id + "\" style=\"display:none\">";
+    html += "<ul class=\"slist\">";
+    for (var j = 0; j < pose.rules.length; j++) {
+      html += "<li class=\"sitem\"><span class=\"snum\">" + (j+1) + "</span><span>" + pose.rules[j] + "</span></li>";
+    }
+    html += "</ul></div></div>";
+  }
+
+  // Setup checklist
+  html += "<div class=\"ccard\">";
+  html += "<div class=\"slbl\">" + t.setupTitle + "</div>";
+  html += "<ul class=\"clist\">";
+  for (var i = 0; i < t.setup.length; i++) {
+    html += "<li class=\"citem\" onclick=\"togglePhotoCheck(this)\">";
+    html += "<div class=\"cbox\"></div><span>" + t.setup[i] + "</span></li>";
+  }
+  html += "</ul></div>";
+
+  // Consistency tip
+  html += "<div class=\"tipbox\">";
+  html += "<b>" + t.tipTitle + ":</b> " + t.tip;
+  html += "</div>";
+
+  // Common errors
+  html += "<div class=\"ccard\" style=\"margin-top:0;border-left:3px solid #E24B4A\">";
+  html += "<div class=\"slbl\" style=\"color:#E24B4A\">" + t.errTitle + "</div>";
+  html += "<ul class=\"clist\">";
+  for (var i = 0; i < t.errors.length; i++) {
+    html += "<li class=\"citem\" style=\"cursor:default\"><span>" + t.errors[i] + "</span></li>";
+  }
+  html += "</ul></div>";
+
+  document.getElementById("el-photos").innerHTML = html;
+}
+
+var activePose = null;
+function togglePose(id) {
+  var body = document.getElementById("pbody-" + id);
+  var tog = document.getElementById("ptog-" + id);
+  if (!body) return;
+  var isOpen = body.style.display !== "none";
+  if (activePose && activePose !== id) {
+    var prev = document.getElementById("pbody-" + activePose);
+    var prevTog = document.getElementById("ptog-" + activePose);
+    if (prev) prev.style.display = "none";
+    if (prevTog) prevTog.style.transform = "";
+  }
+  body.style.display = isOpen ? "none" : "block";
+  tog.style.transform = isOpen ? "" : "rotate(45deg)";
+  activePose = isOpen ? null : id;
+}
+
+function togglePhotoCheck(el) {
+  el.classList.toggle("ck");
+}
+
 
 render();
 </script>
